@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<mavlink>
+    <include>common.xml</include>
+	<!--<version>3</version>-->
+	<enums>
+	</enums>
+	<messages>
+		<message id="210" name="TO_GUM">
+			<description>This message encodes from mastermind to gumstix: Estimated x,y,z,c measurement and pathplanning result.</description>
+			<field type="uint16_t" name="code"> code </field>
+			<field type="float" name="x_m">x measurement</field>
+			<field type="float" name="y_m">y measurement</field>
+			<field type="float" name="z_m">z measurement</field>
+			<field type="float" name="c_m">c measurement</field>
+
+			<field type="float" name="x_ref">x reference</field>
+			<field type="float" name="y_ref">y reference</field>
+			<field type="float" name="z_ref">z reference</field>
+			<field type="float" name="c_ref">c reference</field>
+     
+			<field type="uint8_t" name="flag_visited"> flag visited </field>
+			<field type="uint16_t" name="index">waypoint index</field>
+                        
+            <field type="float[4]" name="aux_float"> auxillary float </field>
+			<field type="uint16_t[4]" name="int_float">auxilary integer</field>
+		</message>
+		<message id="211" name="FROM_GUM">
+			<description>This message encodes from gumstix to mastermind. Filtered position, velocity, angle from IMU, current used reference. </description>
+			<field type="uint16_t" name="code"> code </field>
+		        <field type="float" name="x">X Position</field>
+			<field type="float" name="y">Y Position</field>
+			<field type="float" name="z">Z Position</field>
+
+			<field type="float" name="ug">X Speed</field>
+			<field type="float" name="vg">Y Speed</field>
+			<field type="float" name="wg">Z Speed</field>
+		        
+            <field type="float" name="acx">X Speed</field>
+			<field type="float" name="acy">Y Speed</field>
+			<field type="float" name="acz">Z Speed</field>
+	     
+            <field type="float" name="a">Roll Angle</field>
+			<field type="float" name="b">Pitch Angle</field>
+			<field type="float" name="c">Yaw Angle</field>
+
+		    <field type="float" name="x_ref">X Position reference</field>
+			<field type="float" name="y_ref">Y Position reference</field>
+			<field type="float" name="z_ref">Z Position reference</field>
+			<field type="float" name="c_ref">Yaw Angle reference</field>
+	               
+            <field type="float" name="u_ref">X Velocity reference</field>
+			<field type="float" name="v_ref">Y Velocity reference</field>
+			<field type="float" name="w_ref">Z Velocity reference</field>
+			
+			<field type="float" name="ax_ref">X Acceleration measurement</field>
+			<field type="float" name="ay_ref">Y Acceleration measurement</field>
+			<field type="float" name="az_ref">Z Acceleration measurement</field>
+			
+			<field type="float[4]" name="aux_float"> auxillary float </field>
+			<field type="uint16_t[4]" name="aux_int">auxilary integer</field>
+		</message>
+	</messages>
+</mavlink>
